@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAD Engineering | Präzision in jedem Detail</title>
+    <meta name="description" content="OAD Engineering - High-precision 3D CAD modeling, 2D manufacturing drawings, and vector path optimization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #0A2540;
+            --accent-blue: #0052CC;
+            --slate-gray: #4A5568;
+            --light-bg: #F8FAFC;
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+            --text-dark: #1E293B;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-gray);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #E2E8F0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #003D99;
+        }
+
+        .section-padding {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-blue);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Portfolio Grid Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-img-container {
+            width: 100%;
+            height: 240px;
+            background-color: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .portfolio-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.15rem;
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background-color: #E0E7FF;
+            color: #3730A3;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .portfolio-desc {
+            font-size: 0.9rem;
+            color: var(--slate-gray);
+            line-height: 1.5;
+        }
+
+        /* Software Grid */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .software-card {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #94A3B8;
+            padding: 3rem 2rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#">
+                <img src="logo.png" alt="OAD Engineering Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#portfolio">Projekt-Portfolio</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Präzision in jedem Detail</h1>
+            <p>OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
+            <a href="#contact" class="cta-btn">Projekt Anfragen</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Projekt-Portfolio & Arbeitsproben</h2>
+            <div class="portfolio-grid">
+                
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 1.PNG" alt="Mechanical Press Assembly">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">SolidWorks</span>
+                        <h3 class="portfolio-title">Mechanical Press Assembly</h3>
+                        <p class="portfolio-desc">Multi-component mechanical clamp assembly with verified motion tolerances, alignment, and functional structural rigidness.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 6.PNG" alt="2D Production Drawing">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">SolidWorks / AutoCAD</span>
+                        <h3 class="portfolio-title">2D Production Drawing & GD&T</h3>
+                        <p class="portfolio-desc">Manufacturing-ready orthographic draft featuring section cuts, precise dimensioning, and geometric tolerances for CNC machining.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 5.PNG" alt="Precision Mechanical Linkage">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">SolidWorks</span>
+                        <h3 class="portfolio-title">Precision Mechanical Linkage</h3>
+                        <p class="portfolio-desc">High-strength mechanical arm component designed with pocket milling reliefs, filleted stress zones, and precise pin bores.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 4.PNG" alt="Custom Flange & Piping Joint">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">SolidWorks</span>
+                        <h3 class="portfolio-title">Custom Flange & Piping Joint</h3>
+                        <p class="portfolio-desc">Parametric 3D part design with custom swept pipe profiles, mounting bolt patterns, and sealed flange interfaces.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 3.PNG" alt="Pneumatic Gripper Mechanism">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">SolidWorks</span>
+                        <h3 class="portfolio-title">Pneumatic Gripper Mechanism</h3>
+                        <p class="portfolio-desc">Multi-body assembly for automated gripping systems, featuring customized jaw profiles and internal pin joints.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-container">
+                        <img src="Capture 2.PNG" alt="Parametric Woodcraft Layout">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Autodesk Fusion 360</span>
+                        <h3 class="portfolio-title">Parametric Woodcraft Layout</h3>
+                        <p class="portfolio-desc">Custom structural frame layout optimized for CNC routing, slotted joinery, and multi-material physical assembly.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section -->
+    <section id="software" class="section-padding" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Software & Tools</h2>
+            <div class="software-grid">
+                <div class="software-card">SolidWorks</div>
+                <div class="software-card">Autodesk Fusion 360</div>
+                <div class="software-card">Rhinoceros 3D</div>
+                <div class="software-card">AutoCAD</div>
+                <div class="software-card">Inkscape</div>
+                <div class="software-card">3D Slicing (Cura / Bambu)</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <img src="logo.png" alt="OAD Engineering" class="logo-img" style="filter: brightness(0) invert(1);">
+            </div>
+            <div>
+                <p>OAD Engineering — Präzision in jedem Detail</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 OAD Engineering. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
