@@ -1,392 +1,739 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAD Engineering | Präzision in jedem Detail</title>
-    <meta name="description" content="OAD Engineering - High-precision 3D CAD modeling, 2D manufacturing drawings, and vector path optimization.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAD Engineering | Präzision in jedem Detail</title>
+  <style>
+    /* Global Reset & Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
     
-    <style>
-        :root {
-            --primary-navy: #0A2540;
-            --accent-blue: #0052CC;
-            --slate-gray: #4A5568;
-            --light-bg: #F8FAFC;
-            --white: #FFFFFF;
-            --border-color: #E2E8F0;
-            --text-dark: #1E293B;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      color: #2D3748;
+      background-color: #F7FAFC;
+      line-height: 1.6;
+    }
 
-        body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+    /* Colors */
+    :root {
+      --primary-navy: #0A2540;
+      --secondary-blue: #0066CC;
+      --slate-gray: #4A5568;
+      --light-bg: #F8FAFC;
+      --border-color: #E2E8F0;
+    }
 
-        header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* Header & Navigation */
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.75rem 2rem;
+    }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo-img {
-            height: 48px;
-            width: auto;
-            display: block;
-        }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    .brand-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--slate-gray);
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
 
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
+    nav a {
+      text-decoration: none;
+      color: var(--slate-gray);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%);
-            color: var(--white);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
+    nav a:hover {
+      color: var(--secondary-blue);
+    }
 
-        .hero-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .nav-cta {
+      background-color: var(--primary-navy);
+      color: #FFFFFF !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      transition: background-color 0.2s !important;
+    }
 
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
+    .nav-cta:hover {
+      background-color: var(--secondary-blue) !important;
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #E2E8F0;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-navy) 0%, #1A365D 100%);
+      color: #FFFFFF;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
 
-        .cta-btn {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: var(--white);
-            padding: 0.85rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s ease;
-        }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        .cta-btn:hover {
-            background-color: #003D99;
-        }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
 
-        .section-padding {
-            padding: 5rem 2rem;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      color: #E2E8F0;
+      margin-bottom: 2rem;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--secondary-blue);
+      color: #FFFFFF;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-navy);
-            margin-bottom: 3rem;
-            position: relative;
-        }
+    .btn-primary:hover {
+      background-color: #0052A3;
+    }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-blue);
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
-        }
+    /* Sections Shared Layout */
+    section {
+      padding: 4.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        /* Portfolio Grid Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-        }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        .portfolio-card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-navy);
+      margin-bottom: 0.5rem;
+    }
 
-        .portfolio-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
+    .section-title p {
+      color: var(--slate-gray);
+      font-size: 1.05rem;
+    }
 
-        .portfolio-img-container {
-            width: 100%;
-            height: 240px;
-            background-color: #F1F5F9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
-        }
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
 
-        .portfolio-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 1rem;
-        }
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-        .portfolio-content {
-            padding: 1.5rem;
-        }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
 
-        .portfolio-title {
-            font-size: 1.15rem;
-            color: var(--primary-navy);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary-navy);
+      margin-bottom: 0.75rem;
+    }
 
-        .portfolio-tag {
-            display: inline-block;
-            background-color: #E0E7FF;
-            color: #3730A3;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
+    .service-card p {
+      color: var(--slate-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
 
-        .portfolio-desc {
-            font-size: 0.9rem;
-            color: var(--slate-gray);
-            line-height: 1.5;
-        }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-        /* Software Grid */
-        .software-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-        }
+    .tag {
+      background-color: var(--light-bg);
+      color: var(--slate-gray);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      font-weight: 500;
+    }
 
-        .software-card {
-            background-color: var(--light-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary-navy);
-        }
+    /* Portfolio Section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
 
-        footer {
-            background-color: var(--primary-navy);
-            color: #94A3B8;
-            padding: 3rem 2rem 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+    .portfolio-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
+    .portfolio-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border-color);
+      background-color: #FFFFFF;
+    }
 
-        .footer-copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.85rem;
-        }
-    </style>
+    .portfolio-info {
+      padding: 1.5rem;
+    }
+
+    .portfolio-info h3 {
+      font-size: 1.15rem;
+      color: var(--primary-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-info p {
+      color: var(--slate-gray);
+      font-size: 0.9rem;
+    }
+
+    /* Software Section */
+    .software-section {
+      background-color: var(--light-bg);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      max-width: 100%;
+    }
+
+    .software-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .software-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .software-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .software-card h4 {
+      color: var(--primary-navy);
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .software-card p {
+      color: var(--slate-gray);
+      font-size: 0.85rem;
+    }
+
+    /* Contact Section */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: var(--primary-navy);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--slate-gray);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .info-icon {
+      background-color: var(--light-bg);
+      border: 1px solid var(--border-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--secondary-blue);
+      flex-shrink: 0;
+    }
+
+    .info-details h4 {
+      font-size: 0.85rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-details a, .info-details span {
+      color: var(--primary-navy);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .info-details a:hover {
+      color: var(--secondary-blue);
+    }
+
+    /* Form Styling */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-navy);
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: var(--secondary-blue);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-navy);
+      color: #A0AEC0;
+      padding: 3.5rem 2rem 1.5rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .footer-logo-box {
+      background-color: #FFFFFF;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .footer-logo-box img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      width: 100%;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .contact-layout {
+        grid-template-columns: 1fr;
+        padding: 1.75rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <a href="#">
-                <img src="logo.jpg" alt="OAD Engineering Logo" class="logo-img">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">Leistungen</a></li>
-                <li><a href="#portfolio">Projekt-Portfolio</a></li>
-                <li><a href="#software">Software</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </div>
-    </header>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <img src="logo.png" alt="OAD Engineering Logo">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#services">Leistungen</a></li>
+          <li><a href="#portfolio">Projekt-Portfolio</a></li>
+          <li><a href="#software">Software</a></li>
+          <li><a href="#contact" class="nav-cta">Projekt Anfragen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Präzision in jedem Detail</h1>
-            <p>OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
-            <a href="#contact" class="cta-btn">Projekt Anfragen</a>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Präzision in jedem Detail</h1>
+      <p>OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
+      <a href="#contact" class="btn-primary">Projekt Anfragen</a>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Unsere Ingenieurdienstleistungen</h2>
+      <p>Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>3D-Modellierung & Produktentwicklung</h3>
+        <p>Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.</p>
+        <div class="service-tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Fusion 360</span>
+          <span class="tag">Parametrik</span>
         </div>
+      </div>
+
+      <div class="service-card">
+        <h3>2D-Zeichnungserstellung & GD&T</h3>
+        <p>Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.</p>
+        <div class="service-tags">
+          <span class="tag">DIN / ISO</span>
+          <span class="tag">AutoCAD</span>
+          <span class="tag">Bemaßung</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>Laserschneiden & Vektorpfad-Optimierung</h3>
+        <p>Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).</p>
+        <div class="service-tags">
+          <span class="tag">DXF / SVG</span>
+          <span class="tag">Rhino 8</span>
+          <span class="tag">Inkscape</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>Baugruppen & Kollisionsprüfung</h3>
+        <p>Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.</p>
+        <div class="service-tags">
+          <span class="tag">Assembly</span>
+          <span class="tag">Interference Check</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>3D-Druck-Optimierung (DFAM)</h3>
+        <p>Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.</p>
+        <div class="service-tags">
+          <span class="tag">STL / 3MF</span>
+          <span class="tag">Bambu Studio</span>
+          <span class="tag">DFAM</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>Reverse Engineering & Stücklisten (BOM)</h3>
+        <p>Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.</p>
+        <div class="service-tags">
+          <span class="tag">Reverse CAD</span>
+          <span class="tag">BOM Export</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="section-title">
+      <h2>Projekt-Portfolio & Arbeitsproben</h2>
+      <p>Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <img src="Capture 1.PNG" alt="CAD Projekt 1">
+        <div class="portfolio-info">
+          <h3>Präzisions-Baugruppe</h3>
+          <p>Passgenaue Konstruktion mechatronischer Komponenten mit reduzierten Fertigungstoleranzen.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Capture 2.PNG" alt="CAD Projekt 2">
+        <div class="portfolio-info">
+          <h3>Mechanische Komponenten</h3>
+          <p>Detaillierte Auslegung von Funktionsbauteilen für den Industrieeinsatz.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Capture 3.PNG" alt="CAD Projekt 3">
+        <div class="portfolio-info">
+          <h3>3D-Druck & Gehäusekonstruktion</h3>
+          <p>Optimiertes Gehäusedesign für additive Fertigungsverfahren und Prototyping.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Capture 4.PNG" alt="CAD Projekt 4">
+        <div class="portfolio-info">
+          <h3>Laserschnitt & Blechabwicklung</h3>
+          <p>Vektor-Pfadoptimierte Blech- und Plattenkonstruktionen für präzisen Zuschnitt.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Capture 5.PNG" alt="CAD Projekt 5">
+        <div class="portfolio-info">
+          <h3>Technische 2D-Zeichnung</h3>
+          <p>Fertigungsgerechte Normzeichnung inkl. ISO-Bemaßung und Toleranzangaben.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="Capture 6.PNG" alt="CAD Projekt 6">
+        <div class="portfolio-info">
+          <h3>Komplette Systemmontage</h3>
+          <p>Explosionsdarstellung und Stücklistenerstellung komplexer Baugruppen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software Section -->
+  <div class="software-section" id="software">
+    <section>
+      <div class="section-title">
+        <h2>Eingesetzte Software-Lösungen</h2>
+        <p>Professionelle Werkzeuge für höchste technische Qualitätsstandards</p>
+      </div>
+
+      <div class="software-grid">
+        <div class="software-card">
+          <h4>SolidWorks</h4>
+          <p>3D CAD & Baugruppen</p>
+        </div>
+        <div class="software-card">
+          <h4>Autodesk Fusion 360</h4>
+          <p>Parametrisches Design</p>
+        </div>
+        <div class="software-card">
+          <h4>Rhinoceros 8</h4>
+          <p>Freiform & Vektoren</p>
+        </div>
+        <div class="software-card">
+          <h4>AutoCAD</h4>
+          <p>2D Technische Zeichnungen</p>
+        </div>
+        <div class="software-card">
+          <h4>Inkscape</h4>
+          <p>Laserschnitt-Pfadoptimierung</p>
+        </div>
+      </div>
     </section>
+  </div>
 
-    <!-- Portfolio Showcase Section -->
-    <section id="portfolio" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Projekt-Portfolio & Arbeitsproben</h2>
-            <div class="portfolio-grid">
-                
-                <!-- Card 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 1.PNG" alt="Mechanical Press Assembly">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">SolidWorks</span>
-                        <h3 class="portfolio-title">Mechanical Press Assembly</h3>
-                        <p class="portfolio-desc">Multi-component mechanical clamp assembly with verified motion tolerances, alignment, and functional structural rigidness.</p>
-                    </div>
-                </div>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Kontaktieren Sie Uns</h2>
+      <p>Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot</p>
+    </div>
 
-                <!-- Card 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 6.PNG" alt="2D Production Drawing">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">SolidWorks / AutoCAD</span>
-                        <h3 class="portfolio-title">2D Production Drawing & GD&T</h3>
-                        <p class="portfolio-desc">Manufacturing-ready orthographic draft featuring section cuts, precise dimensioning, and geometric tolerances for CNC machining.</p>
-                    </div>
-                </div>
+    <div class="contact-layout">
+      <!-- Direct Contact Details Sidebar -->
+      <div class="contact-info">
+        <h3>Direkter Kontakt</h3>
+        <p>Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.</p>
 
-                <!-- Card 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 5.PNG" alt="Precision Mechanical Linkage">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">SolidWorks</span>
-                        <h3 class="portfolio-title">Precision Mechanical Linkage</h3>
-                        <p class="portfolio-desc">High-strength mechanical arm component designed with pocket milling reliefs, filleted stress zones, and precise pin bores.</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 4.PNG" alt="Custom Flange & Piping Joint">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">SolidWorks</span>
-                        <h3 class="portfolio-title">Custom Flange & Piping Joint</h3>
-                        <p class="portfolio-desc">Parametric 3D part design with custom swept pipe profiles, mounting bolt patterns, and sealed flange interfaces.</p>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 3.PNG" alt="Pneumatic Gripper Mechanism">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">SolidWorks</span>
-                        <h3 class="portfolio-title">Pneumatic Gripper Mechanism</h3>
-                        <p class="portfolio-desc">Multi-body assembly for automated gripping systems, featuring customized jaw profiles and internal pin joints.</p>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-container">
-                        <img src="Capture 2.PNG" alt="Parametric Woodcraft Layout">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">Autodesk Fusion 360</span>
-                        <h3 class="portfolio-title">Parametric Woodcraft Layout</h3>
-                        <p class="portfolio-desc">Custom structural frame layout optimized for CNC routing, slotted joinery, and multi-material physical assembly.</p>
-                    </div>
-                </div>
-
-            </div>
+        <div class="info-item">
+          <div class="info-icon">✉</div>
+          <div class="info-details">
+            <h4>E-Mail</h4>
+            <a href="mailto:info@oad-engineering.de">info@oad-engineering.de</a>
+          </div>
         </div>
-    </section>
 
-    <!-- Software Section -->
-    <section id="software" class="section-padding" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 class="section-title">Software & Tools</h2>
-            <div class="software-grid">
-                <div class="software-card">SolidWorks</div>
-                <div class="software-card">Autodesk Fusion 360</div>
-                <div class="software-card">Rhinoceros 3D</div>
-                <div class="software-card">AutoCAD</div>
-                <div class="software-card">Inkscape</div>
-                <div class="software-card">3D Slicing (Cura / Bambu)</div>
-            </div>
+        <div class="info-item">
+          <div class="info-icon">☎</div>
+          <div class="info-details">
+            <h4>Telefon</h4>
+            <a href="tel:+491631517038">+49 163 151 7038</a>
+          </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="footer-container">
-            <div>
-                <img src="logo.jpg" alt="OAD Engineering" class="logo-img" style="filter: brightness(0) invert(1);">
-            </div>
-            <div>
-                <p>OAD Engineering — Präzision in jedem Detail</p>
-            </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-details">
+            <h4>Standort</h4>
+            <span>65760 Eschborn, Deutschland</span>
+          </div>
         </div>
-        <div class="footer-copyright">
-            <p>&copy; 2026 OAD Engineering. Alle Rechte vorbehalten.</p>
+      </div>
+
+      <!-- B2B Request Form -->
+      <form class="contact-form" action="https://formspree.io/f/xnqkyqzv" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name / Ansprechpartner *</label>
+            <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann">
+          </div>
+          <div class="form-group">
+            <label for="company">Firma / Unternehmen</label>
+            <input type="text" id="company" name="company" placeholder="z. B. Musterbau GmbH">
+          </div>
         </div>
-    </footer>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">E-Mail Adresse *</label>
+            <input type="email" id="email" name="email" required placeholder="max@unternehmen.de">
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Gewünschte Dienstleistung *</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Bitte wählen Sie eine Option...</option>
+            <option value="3D Modeling">3D-Modellierung & Produktentwicklung</option>
+            <option value="2D Drafting">2D-Zeichnungserstellung & GD&T</option>
+            <option value="Laser Vectoring">Laserschneiden & Vektorpfad-Optimierung</option>
+            <option value="Assemblies">Baugruppen & Kollisionsprüfung</option>
+            <option value="3D Printing DFAM">3D-Druck-Aufbereitung (DFAM)</option>
+            <option value="Reverse Engineering">Reverse Engineering & Stücklisten</option>
+            <option value="Sonstiges">Sonstiges / Beratung</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Projektbeschreibung & Details *</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;">Anfrage Absenden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo-box">
+        <img src="logo.png" alt="OAD Engineering Logo">
+      </div>
+      <p style="max-width: 600px; margin: 0 auto; font-size: 0.9rem;">
+        OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.
+      </p>
+      <div class="footer-copy">
+        &copy; 2026 OAD Engineering. Alle Rechte vorbehalten.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
