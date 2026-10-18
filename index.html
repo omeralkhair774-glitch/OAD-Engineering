@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="htmlRoot">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OAD Engineering | Präzision in jedem Detail</title>
+  <title id="metaTitle">OAD Engineering | Präzision in jedem Detail</title>
   <style>
     /* Global Reset & Styling */
     * {
@@ -65,7 +65,8 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.75rem;
+      align-items: center;
     }
 
     nav a {
@@ -90,6 +91,24 @@
 
     .nav-cta:hover {
       background-color: var(--secondary-blue) !important;
+    }
+
+    /* Language Switch Button */
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--primary-navy);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--secondary-blue);
+      color: var(--secondary-blue);
     }
 
     /* Hero Section */
@@ -154,6 +173,78 @@
     .section-title p {
       color: var(--slate-gray);
       font-size: 1.05rem;
+    }
+
+    /* About Us & Formats Split Section */
+    .about-formats-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text-content h2 {
+      font-size: 2.25rem;
+      color: var(--primary-navy);
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .about-text-content p {
+      color: var(--slate-gray);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      background-color: #E2E8F0;
+      color: var(--primary-navy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.35rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .formats-card {
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 25px rgba(10, 37, 64, 0.15);
+    }
+
+    .formats-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .format-category {
+      margin-bottom: 1.25rem;
+    }
+
+    .format-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .format-category h4 {
+      font-size: 0.9rem;
+      color: #90CDF4;
+      margin-bottom: 0.25rem;
+    }
+
+    .format-category p {
+      font-size: 0.85rem;
+      color: #E2E8F0;
+      word-break: break-word;
     }
 
     /* Services Section */
@@ -243,11 +334,11 @@
       font-size: 0.9rem;
     }
 
-    /* Software Section */
+    /* Software Section (Dark Theme with Brand Accents) */
     .software-section {
-      background-color: var(--light-bg);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      background-color: #0D1F38;
+      color: #FFFFFF;
+      padding: 5rem 2rem;
       max-width: 100%;
     }
 
@@ -256,28 +347,64 @@
       margin: 0 auto;
     }
 
+    .software-section .section-title h2 {
+      color: #FFFFFF;
+    }
+
+    .software-section .section-title p {
+      color: #A0AEC0;
+    }
+
     .software-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
     }
 
     .software-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .software-card h4 {
-      color: var(--primary-navy);
-      font-size: 1.1rem;
+    .software-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .sw-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .sw-solidworks { background-color: #E2231A; }
+    .sw-fusion { background-color: #EB7C00; }
+    .sw-rhino { background-color: #00A88F; }
+    .sw-autocad { background-color: #D83B01; }
+    .sw-inkscape { background-color: #313335; border: 1px solid #718096; }
+    .sw-slicers { background-color: #FF6600; }
+
+    .sw-info h4 {
+      font-size: 1.15rem;
+      color: #FFFFFF;
       margin-bottom: 0.25rem;
     }
 
-    .software-card p {
-      color: var(--slate-gray);
+    .sw-info p {
+      color: #A0AEC0;
       font-size: 0.85rem;
     }
 
@@ -307,30 +434,34 @@
 
     .info-item {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border-color);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .info-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--secondary-blue);
     }
 
     .info-icon {
-      background-color: var(--light-bg);
+      background-color: #FFFFFF;
       border: 1px solid var(--border-color);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
+      font-size: 1.2rem;
       color: var(--secondary-blue);
       flex-shrink: 0;
-    }
-
-    .info-details h4 {
-      font-size: 0.85rem;
-      color: var(--slate-gray);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 
     .info-details a, .info-details span {
@@ -437,6 +568,9 @@
       .hero h1 {
         font-size: 2rem;
       }
+      .about-formats-grid {
+        grid-template-columns: 1fr;
+      }
       .contact-layout {
         grid-template-columns: 1fr;
         padding: 1.75rem;
@@ -457,10 +591,12 @@
       </a>
       <nav>
         <ul>
-          <li><a href="#services">Leistungen</a></li>
-          <li><a href="#portfolio">Projekt-Portfolio</a></li>
-          <li><a href="#software">Software</a></li>
-          <li><a href="#contact" class="nav-cta">Projekt Anfragen</a></li>
+          <li><a href="#services" data-key="nav-services">Leistungen</a></li>
+          <li><a href="#about" data-key="nav-about">Über uns</a></li>
+          <li><a href="#portfolio" data-key="nav-portfolio">Projekt-Portfolio</a></li>
+          <li><a href="#software" data-key="nav-software">Software</a></li>
+          <li><a href="#contact" class="nav-cta" data-key="nav-cta">Projekt Anfragen</a></li>
+          <li><button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">EN</button></li>
         </ul>
       </nav>
     </div>
@@ -469,43 +605,77 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
-      <h1>Präzision in jedem Detail</h1>
-      <p>OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
-      <a href="#contact" class="btn-primary">Projekt Anfragen</a>
+      <h1 data-key="hero-title">Präzision in jedem Detail</h1>
+      <p data-key="hero-desc">OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
+      <a href="#contact" class="btn-primary" data-key="hero-btn">Projekt Anfragen</a>
     </div>
   </div>
+
+  <!-- About Us & Formats Section -->
+  <section id="about">
+    <div class="about-formats-grid">
+      <div class="about-text-content">
+        <span class="badge-pill" data-key="about-badge">Über uns</span>
+        <h2 data-key="about-h2">Ihr agiler Partner für digitale Fertigung</h2>
+        <p data-key="about-p1">OAD Engineering verbindet fundiertes technisches Know-how mit schnellen, direkten Abstimmungswegen. Wir unterstützen mittelständische Fertigungsbetriebe, CNC-Werkstätten, Blechverarbeiter und Hardware-Startups bei der effizienten Umsetzung komplexer Konstruktionen.</p>
+        <p data-key="about-p2">Durch den Einsatz moderner CAD-Systeme und optimierter Datenworkflows garantieren wir maximale Kompatibilität mit Ihren Maschinen und reibungslose Produktionsabläufe.</p>
+      </div>
+
+      <div class="formats-card">
+        <h3 data-key="formats-title">
+          <span>📁</span> Unterstützte Dateiformate & Deliverables
+        </h3>
+        <div class="format-category">
+          <h4 data-key="fmt-3d-title">3D Interchange (Universal Exchange):</h4>
+          <p>STEP (.step, .stp), IGES (.igs, .iges), Parasolid (.x_t, .x_b)</p>
+        </div>
+        <div class="format-category">
+          <h4 data-key="fmt-2d-title">2D Vector & Cutting (CNC, Laser, Fab):</h4>
+          <p data-key="fmt-2d-desc">DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (mit Vollbemaßung & BOM)</p>
+        </div>
+        <div class="format-category">
+          <h4 data-key="fmt-print-title">3D Printing / Additive:</h4>
+          <p>STL (.stl), 3MF (.3mf), OBJ (.obj)</p>
+        </div>
+        <div class="format-category">
+          <h4 data-key="fmt-native-title">Native Source Files:</h4>
+          <p>SolidWorks, Fusion 360, Rhinoceros, Inkscape</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Services Section -->
   <section id="services">
     <div class="section-title">
-      <h2>Unsere Ingenieurdienstleistungen</h2>
-      <p>Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe</p>
+      <h2 data-key="serv-h2">Unsere Ingenieurdienstleistungen</h2>
+      <p data-key="serv-p">Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe</p>
     </div>
     
     <div class="services-grid">
       <div class="service-card">
-        <h3>3D-Modellierung & Produktentwicklung</h3>
-        <p>Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.</p>
+        <h3 data-key="s1-title">3D-Modellierung & Produktentwicklung</h3>
+        <p data-key="s1-desc">Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.</p>
         <div class="service-tags">
           <span class="tag">SolidWorks</span>
           <span class="tag">Fusion 360</span>
-          <span class="tag">Parametrik</span>
+          <span class="tag" data-key="tag-parametric">Parametrik</span>
         </div>
       </div>
 
       <div class="service-card">
-        <h3>2D-Zeichnungserstellung & GD&T</h3>
-        <p>Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.</p>
+        <h3 data-key="s2-title">2D-Zeichnungserstellung & GD&T</h3>
+        <p data-key="s2-desc">Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.</p>
         <div class="service-tags">
           <span class="tag">DIN / ISO</span>
           <span class="tag">AutoCAD</span>
-          <span class="tag">Bemaßung</span>
+          <span class="tag" data-key="tag-dim">Bemaßung</span>
         </div>
       </div>
 
       <div class="service-card">
-        <h3>Laserschneiden & Vektorpfad-Optimierung</h3>
-        <p>Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).</p>
+        <h3 data-key="s3-title">Laserschneiden & Vektorpfad-Optimierung</h3>
+        <p data-key="s3-desc">Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).</p>
         <div class="service-tags">
           <span class="tag">DXF / SVG</span>
           <span class="tag">Rhino 8</span>
@@ -514,8 +684,8 @@
       </div>
 
       <div class="service-card">
-        <h3>Baugruppen & Kollisionsprüfung</h3>
-        <p>Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.</p>
+        <h3 data-key="s4-title">Baugruppen & Kollisionsprüfung</h3>
+        <p data-key="s4-desc">Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.</p>
         <div class="service-tags">
           <span class="tag">Assembly</span>
           <span class="tag">Interference Check</span>
@@ -523,8 +693,8 @@
       </div>
 
       <div class="service-card">
-        <h3>3D-Druck-Optimierung (DFAM)</h3>
-        <p>Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.</p>
+        <h3 data-key="s5-title">3D-Druck-Optimierung (DFAM)</h3>
+        <p data-key="s5-desc">Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.</p>
         <div class="service-tags">
           <span class="tag">STL / 3MF</span>
           <span class="tag">Bambu Studio</span>
@@ -533,8 +703,8 @@
       </div>
 
       <div class="service-card">
-        <h3>Reverse Engineering & Stücklisten (BOM)</h3>
-        <p>Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.</p>
+        <h3 data-key="s6-title">Reverse Engineering & Stücklisten (BOM)</h3>
+        <p data-key="s6-desc">Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.</p>
         <div class="service-tags">
           <span class="tag">Reverse CAD</span>
           <span class="tag">BOM Export</span>
@@ -546,111 +716,138 @@
   <!-- Portfolio Section -->
   <section id="portfolio">
     <div class="section-title">
-      <h2>Projekt-Portfolio & Arbeitsproben</h2>
-      <p>Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte</p>
+      <h2 data-key="port-h2">Projekt-Portfolio & Arbeitsproben</h2>
+      <p data-key="port-p">Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte</p>
     </div>
 
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <img src="Capture 1.PNG" alt="CAD Projekt 1">
         <div class="portfolio-info">
-          <h3>Präzisions-Baugruppe</h3>
-          <p>Passgenaue Konstruktion mechatronischer Komponenten mit reduzierten Fertigungstoleranzen.</p>
+          <h3 data-key="p1-title">Präzisions-Baugruppe</h3>
+          <p data-key="p1-desc">Passgenaue Konstruktion mechatronischer Komponenten mit reduzierten Fertigungstoleranzen.</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 2.PNG" alt="CAD Projekt 2">
         <div class="portfolio-info">
-          <h3>Mechanische Komponenten</h3>
-          <p>Detaillierte Auslegung von Funktionsbauteilen für den Industrieeinsatz.</p>
+          <h3 data-key="p2-title">Mechanische Komponenten</h3>
+          <p data-key="p2-desc">Detaillierte Auslegung von Funktionsbauteilen für den Industrieeinsatz.</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 3.PNG" alt="CAD Projekt 3">
         <div class="portfolio-info">
-          <h3>3D-Druck & Gehäusekonstruktion</h3>
-          <p>Optimiertes Gehäusedesign für additive Fertigungsverfahren und Prototyping.</p>
+          <h3 data-key="p3-title">3D-Druck & Gehäusekonstruktion</h3>
+          <p data-key="p3-desc">Optimiertes Gehäusedesign für additive Fertigungsverfahren und Prototyping.</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 4.PNG" alt="CAD Projekt 4">
         <div class="portfolio-info">
-          <h3>Laserschnitt & Blechabwicklung</h3>
-          <p>Vektor-Pfadoptimierte Blech- und Plattenkonstruktionen für präzisen Zuschnitt.</p>
+          <h3 data-key="p4-title">Laserschnitt & Blechabwicklung</h3>
+          <p data-key="p4-desc">Vektor-Pfadoptimierte Blech- und Plattenkonstruktionen für präzisen Zuschnitt.</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 5.PNG" alt="CAD Projekt 5">
         <div class="portfolio-info">
-          <h3>Technische 2D-Zeichnung</h3>
-          <p>Fertigungsgerechte Normzeichnung inkl. ISO-Bemaßung und Toleranzangaben.</p>
+          <h3 data-key="p5-title">Technische 2D-Zeichnung</h3>
+          <p data-key="p5-desc">Fertigungsgerechte Normzeichnung inkl. ISO-Bemaßung und Toleranzangaben.</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 6.PNG" alt="CAD Projekt 6">
         <div class="portfolio-info">
-          <h3>Komplette Systemmontage</h3>
-          <p>Explosionsdarstellung und Stücklistenerstellung komplexer Baugruppen.</p>
+          <h3 data-key="p6-title">Komplette Systemmontage</h3>
+          <p data-key="p6-desc">Explosionsdarstellung und Stücklistenerstellung komplexer Baugruppen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Software Section -->
+  <!-- Software Section (Dark Theme with Brand Accents) -->
   <div class="software-section" id="software">
-    <section>
+    <div class="software-container">
       <div class="section-title">
-        <h2>Eingesetzte Software-Lösungen</h2>
-        <p>Professionelle Werkzeuge für höchste technische Qualitätsstandards</p>
+        <span class="badge-pill" style="background: rgba(255,255,255,0.1); color: #90CDF4;" data-key="sw-badge">TECHNOLOGISCHES FUNDAMENT</span>
+        <h2 data-key="sw-h2">Professioneller Software-Stack</h2>
+        <p data-key="sw-p">Wir setzen branchenführende CAD- und Vektorsoftware ein, um volle Kompatibilität mit Ihren Fertigungsmaschinen zu garantieren.</p>
       </div>
 
       <div class="software-grid">
         <div class="software-card">
-          <h4>SolidWorks</h4>
-          <p>3D CAD & Baugruppen</p>
+          <div class="sw-badge sw-solidworks">DS</div>
+          <div class="sw-info">
+            <h4>SolidWorks</h4>
+            <p data-key="sw-1">3D CAD & Baugruppen</p>
+          </div>
         </div>
+
         <div class="software-card">
-          <h4>Autodesk Fusion 360</h4>
-          <p>Parametrisches Design</p>
+          <div class="sw-badge sw-fusion">F</div>
+          <div class="sw-info">
+            <h4>Autodesk Fusion 360</h4>
+            <p data-key="sw-2">Parametrisches Design</p>
+          </div>
         </div>
+
         <div class="software-card">
-          <h4>Rhinoceros 8</h4>
-          <p>Freiform & Vektoren</p>
+          <div class="sw-badge sw-rhino">3DM</div>
+          <div class="sw-info">
+            <h4>Rhinoceros 3D</h4>
+            <p data-key="sw-3">Freiform & Vektoren</p>
+          </div>
         </div>
+
         <div class="software-card">
-          <h4>AutoCAD</h4>
-          <p>2D Technische Zeichnungen</p>
+          <div class="sw-badge sw-autocad">CAD</div>
+          <div class="sw-info">
+            <h4>AutoCAD</h4>
+            <p data-key="sw-4">2D Technische Zeichnungen</p>
+          </div>
         </div>
+
         <div class="software-card">
-          <h4>Inkscape</h4>
-          <p>Laserschnitt-Pfadoptimierung</p>
+          <div class="sw-badge sw-inkscape">INK</div>
+          <div class="sw-info">
+            <h4>Inkscape</h4>
+            <p data-key="sw-5">Laserschnitt-Pfadoptimierung</p>
+          </div>
+        </div>
+
+        <div class="software-card">
+          <div class="sw-badge sw-slicers">3DP</div>
+          <div class="sw-info">
+            <h4>Bambu Studio / Cura</h4>
+            <p data-key="sw-6">Additive Fertigung & Slicing</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="section-title">
-      <h2>Kontaktieren Sie Uns</h2>
-      <p>Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot</p>
+      <h2 data-key="contact-h2">Kontaktieren Sie Uns</h2>
+      <p data-key="contact-p">Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot</p>
     </div>
 
     <div class="contact-layout">
       <!-- Direct Contact Details Sidebar -->
       <div class="contact-info">
-        <h3>Direkter Kontakt</h3>
-        <p>Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.</p>
+        <h3 data-key="direct-h3">Direkter Kontakt</h3>
+        <p data-key="direct-p">Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.</p>
 
         <div class="info-item">
           <div class="info-icon">✉</div>
           <div class="info-details">
-            <h4>E-Mail</h4>
             <a href="mailto:info@oad-engineering.de">info@oad-engineering.de</a>
           </div>
         </div>
@@ -658,7 +855,6 @@
         <div class="info-item">
           <div class="info-icon">☎</div>
           <div class="info-details">
-            <h4>Telefon</h4>
             <a href="tel:+491631517038">+49 163 151 7038</a>
           </div>
         </div>
@@ -666,8 +862,7 @@
         <div class="info-item">
           <div class="info-icon">📍</div>
           <div class="info-details">
-            <h4>Standort</h4>
-            <span>65760 Eschborn, Deutschland</span>
+            <span data-key="loc-text">65760 Eschborn, Deutschland</span>
           </div>
         </div>
       </div>
@@ -676,46 +871,46 @@
       <form class="contact-form" action="https://formspree.io/f/xnqkyqzv" method="POST">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Name / Ansprechpartner *</label>
-            <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann">
+            <label for="name" data-key="lbl-name">Name / Ansprechpartner *</label>
+            <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann" data-ph-name="z. B. Max Mustermann">
           </div>
           <div class="form-group">
-            <label for="company">Firma / Unternehmen</label>
-            <input type="text" id="company" name="company" placeholder="z. B. Musterbau GmbH">
+            <label for="company" data-key="lbl-company">Firma / Unternehmen</label>
+            <input type="text" id="company" name="company" placeholder="z. B. Musterbau GmbH" data-ph-company="z. B. Musterbau GmbH">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="email">E-Mail Adresse *</label>
+            <label for="email" data-key="lbl-email">E-Mail Adresse *</label>
             <input type="email" id="email" name="email" required placeholder="max@unternehmen.de">
           </div>
           <div class="form-group">
-            <label for="phone">Telefonnummer</label>
+            <label for="phone" data-key="lbl-phone">Telefonnummer</label>
             <input type="tel" id="phone" name="phone" placeholder="+49 ...">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="service">Gewünschte Dienstleistung *</label>
+          <label for="service" data-key="lbl-service">Gewünschte Dienstleistung *</label>
           <select id="service" name="service" required>
-            <option value="" disabled selected>Bitte wählen Sie eine Option...</option>
-            <option value="3D Modeling">3D-Modellierung & Produktentwicklung</option>
-            <option value="2D Drafting">2D-Zeichnungserstellung & GD&T</option>
-            <option value="Laser Vectoring">Laserschneiden & Vektorpfad-Optimierung</option>
-            <option value="Assemblies">Baugruppen & Kollisionsprüfung</option>
-            <option value="3D Printing DFAM">3D-Druck-Aufbereitung (DFAM)</option>
-            <option value="Reverse Engineering">Reverse Engineering & Stücklisten</option>
-            <option value="Sonstiges">Sonstiges / Beratung</option>
+            <option value="" disabled selected data-key="opt-default">Bitte wählen Sie eine Option...</option>
+            <option value="3D Modeling" data-key="opt-1">3D-Modellierung & Produktentwicklung</option>
+            <option value="2D Drafting" data-key="opt-2">2D-Zeichnungserstellung & GD&T</option>
+            <option value="Laser Vectoring" data-key="opt-3">Laserschneiden & Vektorpfad-Optimierung</option>
+            <option value="Assemblies" data-key="opt-4">Baugruppen & Kollisionsprüfung</option>
+            <option value="3D Printing DFAM" data-key="opt-5">3D-Druck-Aufbereitung (DFAM)</option>
+            <option value="Reverse Engineering" data-key="opt-6">Reverse Engineering & Stücklisten</option>
+            <option value="Sonstiges" data-key="opt-7">Sonstiges / Beratung</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="message">Projektbeschreibung & Details *</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
+          <label for="message" data-key="lbl-msg">Projektbeschreibung & Details *</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..." data-ph-msg="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
         </div>
 
-        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;">Anfrage Absenden</button>
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;" data-key="btn-submit">Anfrage Absenden</button>
       </form>
     </div>
   </section>
@@ -726,14 +921,215 @@
       <div class="footer-logo-box">
         <img src="logo.png" alt="OAD Engineering Logo">
       </div>
-      <p style="max-width: 600px; margin: 0 auto; font-size: 0.9rem;">
+      <p style="max-width: 600px; margin: 0 auto; font-size: 0.9rem;" data-key="footer-desc">
         OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.
       </p>
-      <div class="footer-copy">
+      <div class="footer-copy" data-key="footer-copy">
         &copy; 2026 OAD Engineering. Alle Rechte vorbehalten.
       </div>
     </div>
   </footer>
 
+  <!-- Translation JavaScript Script -->
+  <script>
+    const translations = {
+      de: {
+        metaTitle: "OAD Engineering | Präzision in jedem Detail",
+        "nav-services": "Leistungen",
+        "nav-about": "Über uns",
+        "nav-portfolio": "Projekt-Portfolio",
+        "nav-software": "Software",
+        "nav-cta": "Projekt Anfragen",
+        "hero-title": "Präzision in jedem Detail",
+        "hero-desc": "OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.",
+        "hero-btn": "Projekt Anfragen",
+        "about-badge": "Über uns",
+        "about-h2": "Ihr agiler Partner für digitale Fertigung",
+        "about-p1": "OAD Engineering verbindet fundiertes technisches Know-how mit schnellen, direkten Abstimmungswegen. Wir unterstützen mittelständische Fertigungsbetriebe, CNC-Werkstätten, Blechverarbeiter und Hardware-Startups bei der effizienten Umsetzung komplexer Konstruktionen.",
+        "about-p2": "Durch den Einsatz moderner CAD-Systeme und optimierter Datenworkflows garantieren wir maximale Kompatibilität mit Ihren Maschinen und reibungslose Produktionsabläufe.",
+        "formats-title": "Unterstützte Dateiformate & Deliverables",
+        "fmt-3d-title": "3D Interchange (Universal Exchange):",
+        "fmt-2d-title": "2D Vector & Cutting (CNC, Laser, Fab):",
+        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (mit Vollbemaßung & BOM)",
+        "fmt-print-title": "3D Printing / Additive:",
+        "fmt-native-title": "Native Source Files:",
+        "serv-h2": "Unsere Ingenieurdienstleistungen",
+        "serv-p": "Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe",
+        "s1-title": "3D-Modellierung & Produktentwicklung",
+        "s1-desc": "Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.",
+        "tag-parametric": "Parametrik",
+        "s2-title": "2D-Zeichnungserstellung & GD&T",
+        "s2-desc": "Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.",
+        "tag-dim": "Bemaßung",
+        "s3-title": "Laserschneiden & Vektorpfad-Optimierung",
+        "s3-desc": "Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).",
+        "s4-title": "Baugruppen & Kollisionsprüfung",
+        "s4-desc": "Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.",
+        "s5-title": "3D-Druck-Optimierung (DFAM)",
+        "s5-desc": "Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.",
+        "s6-title": "Reverse Engineering & Stücklisten (BOM)",
+        "s6-desc": "Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.",
+        "port-h2": "Projekt-Portfolio & Arbeitsproben",
+        "port-p": "Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte",
+        "p1-title": "Präzisions-Baugruppe",
+        "p1-desc": "Passgenaue Konstruktion mechatronischer Komponenten mit reduzierten Fertigungstoleranzen.",
+        "p2-title": "Mechanische Komponenten",
+        "p2-desc": "Detaillierte Auslegung von Funktionsbauteilen für den Industrieeinsatz.",
+        "p3-title": "3D-Druck & Gehäusekonstruktion",
+        "p3-desc": "Optimiertes Gehäusedesign für additive Fertigungsverfahren und Prototyping.",
+        "p4-title": "Laserschnitt & Blechabwicklung",
+        "p4-desc": "Vektor-Pfadoptimierte Blech- und Plattenkonstruktionen für präzisen Zuschnitt.",
+        "p5-title": "Technische 2D-Zeichnung",
+        "p5-desc": "Fertigungsgerechte Normzeichnung inkl. ISO-Bemaßung und Toleranzangaben.",
+        "p6-title": "Komplette Systemmontage",
+        "p6-desc": "Explosionsdarstellung und Stücklistenerstellung komplexer Baugruppen.",
+        "sw-badge": "TECHNOLOGISCHES FUNDAMENT",
+        "sw-h2": "Professioneller Software-Stack",
+        "sw-p": "Wir setzen branchenführende CAD- und Vektorsoftware ein, um volle Kompatibilität mit Ihren Fertigungsmaschinen zu garantieren.",
+        "sw-1": "3D CAD & Baugruppen",
+        "sw-2": "Parametrisches Design",
+        "sw-3": "Freiform & Vektoren",
+        "sw-4": "2D Technische Zeichnungen",
+        "sw-5": "Laserschnitt-Pfadoptimierung",
+        "sw-6": "Additive Fertigung & Slicing",
+        "contact-h2": "Kontaktieren Sie Uns",
+        "contact-p": "Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot",
+        "direct-h3": "Direkter Kontakt",
+        "direct-p": "Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.",
+        "loc-text": "65760 Eschborn, Deutschland",
+        "lbl-name": "Name / Ansprechpartner *",
+        "ph-name": "z. B. Max Mustermann",
+        "lbl-company": "Firma / Unternehmen",
+        "ph-company": "z. B. Musterbau GmbH",
+        "lbl-email": "E-Mail Adresse *",
+        "lbl-phone": "Telefonnummer",
+        "lbl-service": "Gewünschte Dienstleistung *",
+        "opt-default": "Bitte wählen Sie eine Option...",
+        "opt-1": "3D-Modellierung & Produktentwicklung",
+        "opt-2": "2D-Zeichnungserstellung & GD&T",
+        "opt-3": "Laserschneiden & Vektorpfad-Optimierung",
+        "opt-4": "Baugruppen & Kollisionsprüfung",
+        "opt-5": "3D-Druck-Aufbereitung (DFAM)",
+        "opt-6": "Reverse Engineering & Stücklisten",
+        "opt-7": "Sonstiges / Beratung",
+        "lbl-msg": "Projektbeschreibung & Details *",
+        "ph-msg": "Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen...",
+        "btn-submit": "Anfrage Absenden",
+        "footer-desc": "OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.",
+        "footer-copy": "&copy; 2026 OAD Engineering. Alle Rechte vorbehalten."
+      },
+      en: {
+        metaTitle: "OAD Engineering | Precision in Every Detail",
+        "nav-services": "Services",
+        "nav-about": "About Us",
+        "nav-portfolio": "Portfolio",
+        "nav-software": "Software",
+        "nav-cta": "Request Project",
+        "hero-title": "Precision in Every Detail",
+        "hero-desc": "OAD Engineering combines strategic project management with high-precision 3D CAD modeling, technical drafting, and manufacturing-ready engineering.",
+        "hero-btn": "Request Project",
+        "about-badge": "About Us",
+        "about-h2": "Your Agile Partner for Digital Manufacturing",
+        "about-p1": "OAD Engineering bridges deep technical expertise with fast, direct communication channels. We support mid-sized manufacturing companies, CNC workshops, sheet metal fabricators, and hardware startups in efficiently executing complex designs.",
+        "about-p2": "Through the use of modern CAD systems and optimized data workflows, we guarantee maximum compatibility with your machines and smooth production cycles.",
+        "formats-title": "Supported File Formats & Deliverables",
+        "fmt-3d-title": "3D Interchange (Universal Exchange):",
+        "fmt-2d-title": "2D Vector & Cutting (CNC, Laser, Fab):",
+        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (with full dimensions & BOM)",
+        "fmt-print-title": "3D Printing / Additive:",
+        "fmt-native-title": "Native Source Files:",
+        "serv-h2": "Our Engineering Services",
+        "serv-p": "Tailored CAD & manufacturing solutions for mechanical engineering, SMEs & production plants",
+        "s1-title": "3D Modeling & Product Design",
+        "s1-desc": "Creation of complex 3D CAD models from sketches, specifications, or freeforms. Parametric architecture for simple future modifications.",
+        "tag-parametric": "Parametric",
+        "s2-title": "2D Drafting & GD&T",
+        "s2-desc": "Manufacturing-ready detail and assembly drawings with form and location tolerances (GD&T/ISO) for seamless production.",
+        "tag-dim": "Dimensioning",
+        "s3-title": "Laser Cutting & Vector Optimization",
+        "s3-desc": "Cleanup and optimization of 2D vector files for CNC, laser, and waterjet cutting. Kerf compensation and node checks.",
+        "s4-title": "Assemblies & Clash Detection",
+        "s4-desc": "Structured CAD assembly design including motion analysis, clearance verification, and visual exploded views.",
+        "s5-title": "3D Printing Optimization (DFAM)",
+        "s5-desc": "Manufacturing preparation of 3D models for additive processes. Wall thickness checks, mesh repair, and slice prep.",
+        "s6-title": "Reverse Engineering & BOM Generation",
+        "s6-desc": "CAD reconstruction from physical components as well as automated creation of structured assembly Bills of Materials.",
+        "port-h2": "Project Portfolio & Work Samples",
+        "port-p": "An insight into our current design and manufacturing projects",
+        "p1-title": "Precision Assembly",
+        "p1-desc": "Precisely fitted construction of mechatronic components with reduced manufacturing tolerances.",
+        "p2-title": "Mechanical Components",
+        "p2-desc": "Detailed design of functional parts for industrial applications.",
+        "p3-title": "3D Printing & Enclosures",
+        "p3-desc": "Optimized housing design for additive manufacturing processes and prototyping.",
+        "p4-title": "Laser Cut & Sheet Metal Unfolding",
+        "p4-desc": "Vector-optimized sheet metal and plate layouts for precision cutting.",
+        "p5-title": "Technical 2D Drawing",
+        "p5-desc": "Manufacturing standard drawings including ISO dimensions and tolerance notes.",
+        "p6-title": "Complete System Assembly",
+        "p6-desc": "Exploded views and BOM generation of complex mechanical assemblies.",
+        "sw-badge": "TECHNOLOGICAL FOUNDATION",
+        "sw-h2": "Professional Software Stack",
+        "sw-p": "We deploy industry-leading CAD and vector software to guarantee full compatibility with your manufacturing machines.",
+        "sw-1": "3D CAD & Assemblies",
+        "sw-2": "Parametric Design",
+        "sw-3": "Freeform & Vectors",
+        "sw-4": "2D Technical Drawings",
+        "sw-5": "Laser Path Optimization",
+        "sw-6": "Additive Manufacturing & Slicing",
+        "contact-h2": "Contact Us",
+        "contact-p": "Send us your project requirements or request a non-binding quote",
+        "direct-h3": "Direct Contact",
+        "direct-p": "We look forward to learning about your project. Call us or write to us directly via email.",
+        "loc-text": "65760 Eschborn, Germany",
+        "lbl-name": "Name / Contact Person *",
+        "ph-name": "e.g. John Doe",
+        "lbl-company": "Company / Business",
+        "ph-company": "e.g. Acme Corp",
+        "lbl-email": "Email Address *",
+        "lbl-phone": "Phone Number",
+        "lbl-service": "Required Service *",
+        "opt-default": "Please select an option...",
+        "opt-1": "3D Modeling & Product Design",
+        "opt-2": "2D Drafting & GD&T",
+        "opt-3": "Laser Cutting & Vector Path Optimization",
+        "opt-4": "Assemblies & Clash Detection",
+        "opt-5": "3D Printing Preparation (DFAM)",
+        "opt-6": "Reverse Engineering & BOM",
+        "opt-7": "Other / Consulting",
+        "lbl-msg": "Project Description & Details *",
+        "ph-msg": "Briefly describe your project, required file formats, or timeframe...",
+        "btn-submit": "Submit Request",
+        "footer-desc": "OAD Engineering – Your partner for precise CAD design, vector optimization, and manufacturing-ready engineering.",
+        "footer-copy": "&copy; 2026 OAD Engineering. All rights reserved."
+      }
+    };
+
+    let currentLang = 'de';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'de' ? 'en' : 'de';
+      document.getElementById('htmlRoot').setAttribute('lang', currentLang);
+      document.getElementById('langToggleBtn').innerText = currentLang === 'de' ? 'EN' : 'DE';
+      
+      // Update all elements with data-key
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+
+      // Update placeholders
+      const nameInput = document.getElementById('name');
+      if(nameInput) nameInput.placeholder = translations[currentLang]['ph-name'];
+      
+      const compInput = document.getElementById('company');
+      if(compInput) compInput.placeholder = translations[currentLang]['ph-company'];
+
+      const msgInput = document.getElementById('message');
+      if(msgInput) msgInput.placeholder = translations[currentLang]['ph-msg'];
+    }
+  </script>
 </body>
 </html>
