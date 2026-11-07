@@ -476,7 +476,7 @@
       color: var(--secondary-blue);
     }
 
-    /* Form Styling */
+    /* Form Styling & Success Bar */
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -517,6 +517,34 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
+    }
+
+    .form-success-msg {
+      display: none;
+      background-color: #DEF7EC;
+      border: 1px solid #31C48D;
+      color: #03543F;
+      padding: 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .form-success-msg .check-icon {
+      background-color: #31C48D;
+      color: #FFFFFF;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      flex-shrink: 0;
     }
 
     /* Footer */
@@ -868,51 +896,59 @@
         </div>
       </div>
 
-      <!-- B2B Request Form -->
-      <form class="contact-form" action="https://formspree.io/f/mnppyvwv" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name" data-key="lbl-name">Name / Ansprechpartner *</label>
-            <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann" data-ph-name="z. B. Max Mustermann">
+      <!-- B2B Request Form with AJAX Success Handler -->
+      <div>
+        <form id="b2bContactForm" class="contact-form" action="https://formspree.io/f/mnppyvwv" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" data-key="lbl-name">Name / Ansprechpartner *</label>
+              <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann" data-ph-name="z. B. Max Mustermann">
+            </div>
+            <div class="form-group">
+              <label for="company" data-key="lbl-company">Firma / Unternehmen</label>
+              <input type="text" id="company" name="company" placeholder="z. B. Musterbau GmbH" data-ph-company="z. B. Musterbau GmbH">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="company" data-key="lbl-company">Firma / Unternehmen</label>
-            <input type="text" id="company" name="company" placeholder="z. B. Musterbau GmbH" data-ph-company="z. B. Musterbau GmbH">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" data-key="lbl-email">E-Mail Adresse *</label>
+              <input type="email" id="email" name="email" required placeholder="max@unternehmen.de">
+            </div>
+            <div class="form-group">
+              <label for="phone" data-key="lbl-phone">Telefonnummer</label>
+              <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
           <div class="form-group">
-            <label for="email" data-key="lbl-email">E-Mail Adresse *</label>
-            <input type="email" id="email" name="email" required placeholder="max@unternehmen.de">
+            <label for="service" data-key="lbl-service">Gewünschte Dienstleistung *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected data-key="opt-default">Bitte wählen Sie eine Option...</option>
+              <option value="3D Modeling" data-key="opt-1">3D-Modellierung & Produktentwicklung</option>
+              <option value="2D Drafting" data-key="opt-2">2D-Zeichnungserstellung & GD&T</option>
+              <option value="Laser Vectoring" data-key="opt-3">Laserschneiden & Vektorpfad-Optimierung</option>
+              <option value="Assemblies" data-key="opt-4">Baugruppen & Kollisionsprüfung</option>
+              <option value="3D Printing DFAM" data-key="opt-5">3D-Druck-Aufbereitung (DFAM)</option>
+              <option value="Reverse Engineering" data-key="opt-6">Reverse Engineering & Stücklisten</option>
+              <option value="Sonstiges" data-key="opt-7">Sonstiges / Beratung</option>
+            </select>
           </div>
+
           <div class="form-group">
-            <label for="phone" data-key="lbl-phone">Telefonnummer</label>
-            <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+            <label for="message" data-key="lbl-msg">Projektbeschreibung & Details *</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..." data-ph-msg="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="service" data-key="lbl-service">Gewünschte Dienstleistung *</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected data-key="opt-default">Bitte wählen Sie eine Option...</option>
-            <option value="3D Modeling" data-key="opt-1">3D-Modellierung & Produktentwicklung</option>
-            <option value="2D Drafting" data-key="opt-2">2D-Zeichnungserstellung & GD&T</option>
-            <option value="Laser Vectoring" data-key="opt-3">Laserschneiden & Vektorpfad-Optimierung</option>
-            <option value="Assemblies" data-key="opt-4">Baugruppen & Kollisionsprüfung</option>
-            <option value="3D Printing DFAM" data-key="opt-5">3D-Druck-Aufbereitung (DFAM)</option>
-            <option value="Reverse Engineering" data-key="opt-6">Reverse Engineering & Stücklisten</option>
-            <option value="Sonstiges" data-key="opt-7">Sonstiges / Beratung</option>
-          </select>
-        </div>
+          <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;" data-key="btn-submit">Anfrage Absenden</button>
+        </form>
 
-        <div class="form-group">
-          <label for="message" data-key="lbl-msg">Projektbeschreibung & Details *</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..." data-ph-msg="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
+        <!-- In-Page Success Message Bar -->
+        <div id="formSuccess" class="form-success-msg">
+          <span class="check-icon">✓</span>
+          <span data-key="msg-success-text">Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.</span>
         </div>
-
-        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;" data-key="btn-submit">Anfrage Absenden</button>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -931,7 +967,7 @@
     </div>
   </footer>
 
-  <!-- Translation JavaScript Script -->
+  <!-- JavaScript Script for Translation & AJAX Form Submission -->
   <script>
     const translations = {
       de: {
@@ -1016,6 +1052,7 @@
         "lbl-msg": "Projektbeschreibung & Details *",
         "ph-msg": "Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen...",
         "btn-submit": "Anfrage Absenden",
+        "msg-success-text": "Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.",
         "footer-desc": "OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.",
         "footer-copy": "© 2026 OAD Engineering. Alle Rechte vorbehalten."
       },
@@ -1101,6 +1138,7 @@
         "lbl-msg": "Project Description & Details *",
         "ph-msg": "Briefly describe your project, required file formats, or timeframe...",
         "btn-submit": "Submit Request",
+        "msg-success-text": "Thank you! Your request has been submitted successfully. We will get back to you shortly.",
         "footer-desc": "OAD Engineering – Your partner for precise CAD design, vector optimization, and manufacturing-ready engineering.",
         "footer-copy": "© 2026 OAD Engineering. All rights reserved."
       }
@@ -1131,6 +1169,34 @@
       const msgInput = document.getElementById('message');
       if(msgInput) msgInput.placeholder = translations[currentLang]['ph-msg'];
     }
+
+    // AJAX Form Submission Handler (Prevents redirect & shows green success bar)
+    document.getElementById('b2bContactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const successBox = document.getElementById('formSuccess');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          form.style.display = 'none';
+          successBox.style.display = 'flex';
+        } else {
+          alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');
+        }
+      } catch (error) {
+        alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
+      }
+    });
   </script>
 </body>
 </html>
