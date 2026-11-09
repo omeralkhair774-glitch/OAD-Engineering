@@ -4,16 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="metaTitle">OAD Engineering | Präzision in jedem Detail</title>
-  <!-- Standard Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+  
+  <!-- [UPDATED] Final Favicon Links pointing to Icon.jpg -->
+  <!-- This replaces the default globe icon in browser tabs and Google Search -->
+  <link rel="icon" type="image/png" href="Icon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Icon.jpg">
+  <link rel="icon" type="image/png" sizes="192x192" href="Icon.jpg">
+  <link rel="apple-touch-icon" href="Icon.jpg">
 
-<!-- Google / Android High-Res Icon -->
-<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" href="logo.png">
-  <meta name="google-site-verification" content="xLdQwF678BCmRT4L2SZtV1lSr1Zmz8Evq1N4Yt6QtXE" />
-  <link rel="icon" type="image/png" href="logo.png">
   <style>
     /* Global Reset & Styling */
     * {
@@ -403,9 +401,11 @@
     .sw-solidworks { background-color: #E2231A; }
     .sw-fusion { background-color: #EB7C00; }
     .sw-rhino { background-color: #00A88F; }
-    .sw-autocad { background-color: #E51937; }
+    /* [UPDATED] Official Autodesk Red */
+    .sw-autocad { background-color: #E51937; } 
     .sw-inkscape { background-color: #313335; border: 1px solid #718096; }
-    .sw-slicers { background-color: #00A859; }
+    /* [UPDATED] Official Bambu Green */
+    .sw-slicers { background-color: #00A859; } 
 
     .sw-info h4 {
       font-size: 1.15rem;
@@ -625,7 +625,8 @@
   <header>
     <div class="nav-container">
       <a href="#" class="brand-logo">
-        <img src="logo.png" alt="OAD Engineering Logo">
+        <!-- Main Website Logo -->
+        <img src="Icon.png" alt="OAD Engineering Logo">
       </a>
       <nav>
         <ul>
@@ -644,7 +645,7 @@
   <div class="hero">
     <div class="hero-content">
       <h1 data-key="hero-title">Präzision in jedem Detail</h1>
-      <p data-key="hero-desc">OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.</p>
+      <p data-key="hero-desc">OAD Engineering kombiniert strategisches Projektmanagement with high-precision 3D CAD modeling, technical drafting, and manufacturing-ready engineering.</p>
       <a href="#contact" class="btn-primary" data-key="hero-btn">Projekt Anfragen</a>
     </div>
   </div>
@@ -654,14 +655,14 @@
     <div class="about-formats-grid">
       <div class="about-text-content">
         <span class="badge-pill" data-key="about-badge">Über uns</span>
-        <h2 data-key="about-h2">Ihr agiler Partner für digitale Fertigung</h2>
-        <p data-key="about-p1">OAD Engineering verbindet fundiertes technisches Know-how mit schnellen, direkten Abstimmungswegen. Wir unterstützen mittelständische Fertigungsbetriebe, CNC-Werkstätten, Blechverarbeiter und Hardware-Startups bei der effizienten Umsetzung komplexer Konstruktionen.</p>
-        <p data-key="about-p2">Durch den Einsatz moderner CAD-Systeme und optimierter Datenworkflows garantieren wir maximale Kompatibilität mit Ihren Maschinen und reibungslose Produktionsabläufe.</p>
+        <h2 data-key="about-h2">Ihr agiler Partner for digital fabrication</h2>
+        <p data-key="about-p1">OAD Engineering connects deep technical expertise with fast, direct communication channels. We support SME manufacturing companies, CNC workshops, sheet metal fabricators, and hardware startups in efficiently executing complex designs.</p>
+        <p data-key="about-p2">Through the use of modern CAD systems and optimized data workflows, we guarantee maximum compatibility with your machines and smooth production cycles.</p>
       </div>
 
       <div class="formats-card">
         <h3 data-key="formats-title">
-          <span>📁</span> Unterstützte Dateiformate & Deliverables
+          <span>📁</span> Supports Dateiformate & Deliverables
         </h3>
         <div class="format-category">
           <h4 data-key="fmt-3d-title">3D Interchange (Universal Exchange):</h4>
@@ -669,7 +670,7 @@
         </div>
         <div class="format-category">
           <h4 data-key="fmt-2d-title">2D Vector & Cutting (CNC, Laser, Fab):</h4>
-          <p data-key="fmt-2d-desc">DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (mit Vollbemaßung & BOM)</p>
+          <p data-key="fmt-2d-desc">DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (with BOM generation)</p>
         </div>
         <div class="format-category">
           <h4 data-key="fmt-print-title">3D Printing / Additive:</h4>
@@ -687,33 +688,33 @@
   <section id="services">
     <div class="section-title">
       <h2 data-key="serv-h2">Unsere Ingenieurdienstleistungen</h2>
-      <p data-key="serv-p">Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe</p>
+      <p data-key="serv-p">Tailored CAD & manufacturing solutions for mechanical engineering, SME manufacturing, & production plants</p>
     </div>
     
     <div class="services-grid">
       <div class="service-card">
         <h3 data-key="s1-title">3D-Modellierung & Produktentwicklung</h3>
-        <p data-key="s1-desc">Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.</p>
+        <p data-key="s1-desc">Creation of complex 3D CAD models from sketches, specifications, or freeforms. Parametric architecture for simple future modifications.</p>
         <div class="service-tags">
           <span class="tag">SolidWorks</span>
           <span class="tag">Fusion 360</span>
-          <span class="tag" data-key="tag-parametric">Parametrik</span>
+          <span class="tag" data-key="tag-parametric">Parametric</span>
         </div>
       </div>
 
       <div class="service-card">
         <h3 data-key="s2-title">2D-Zeichnungserstellung & GD&T</h3>
-        <p data-key="s2-desc">Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.</p>
+        <p data-key="s2-desc">Manufacturing-ready detail and assembly drawings with GD&T (Geometric Dimensioning & Tolerancing) for seamless production.</p>
         <div class="service-tags">
           <span class="tag">DIN / ISO</span>
           <span class="tag">AutoCAD</span>
-          <span class="tag" data-key="tag-dim">Bemaßung</span>
+          <span class="tag" data-key="tag-dim">Dimensioning</span>
         </div>
       </div>
 
       <div class="service-card">
         <h3 data-key="s3-title">Laserschneiden & Vektorpfad-Optimierung</h3>
-        <p data-key="s3-desc">Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).</p>
+        <p data-key="s3-desc">Cleanup and optimization of 2D vector files (node cleanup, node reduction) for CNC, laser, and waterjet cutting.</p>
         <div class="service-tags">
           <span class="tag">DXF / SVG</span>
           <span class="tag">Rhino 8</span>
@@ -723,26 +724,26 @@
 
       <div class="service-card">
         <h3 data-key="s4-title">Baugruppen & Kollisionsprüfung</h3>
-        <p data-key="s4-desc">Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.</p>
+        <p data-key="s4-desc">Structured CAD assembly design, full Bill of Materials (BOM) generation, interference detection, and motion analysis.</p>
         <div class="service-tags">
           <span class="tag">Assembly</span>
-          <span class="tag">Interference Check</span>
+          <span class="tag">Clash Detection</span>
         </div>
       </div>
 
       <div class="service-card">
         <h3 data-key="s5-title">3D-Druck-Optimierung (DFAM)</h3>
-        <p data-key="s5-desc">Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.</p>
+        <p data-key="s5-desc">Preparation of 3D models for additive manufacturing (DFAM). Mesh repair, wall thickness checks, and slicing support.</p>
         <div class="service-tags">
           <span class="tag">STL / 3MF</span>
           <span class="tag">Bambu Studio</span>
-          <span class="tag">DFAM</span>
+          <span class="tag">Slicer Ready</span>
         </div>
       </div>
 
       <div class="service-card">
         <h3 data-key="s6-title">Reverse Engineering & Stücklisten (BOM)</h3>
-        <p data-key="s6-desc">Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.</p>
+        <p data-key="s6-desc">Reverse Engineering of physical components into accurate CAD data, complete with structured Bill of Materials generation.</p>
         <div class="service-tags">
           <span class="tag">Reverse CAD</span>
           <span class="tag">BOM Export</span>
@@ -755,7 +756,7 @@
   <section id="portfolio">
     <div class="section-title">
       <h2 data-key="port-h2">Projekt-Portfolio & Arbeitsproben</h2>
-      <p data-key="port-p">Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte</p>
+      <p data-key="port-p">An insight into our current design and manufacturing projects</p>
     </div>
 
     <div class="portfolio-grid">
@@ -763,7 +764,7 @@
         <img src="Capture 1.PNG" alt="CAD Projekt 1">
         <div class="portfolio-info">
           <h3 data-key="p1-title">Rohr-Schraubstock</h3>
-          <p data-key="p1-desc">Auf Grundplatte montierter Schraubstock mit T-Griff zum Spannen der gezahnten Backen.</p>
+          <p data-key="p1-desc">Pipe vise mounted on a base plate with a T-handle to tighten the jaws.</p>
         </div>
       </div>
 
@@ -771,7 +772,7 @@
         <img src="Capture 3.PNG" alt="CAD Projekt 3">
         <div class="portfolio-info">
           <h3 data-key="p3-title">Greifmechanismus</h3>
-          <p data-key="p3-desc">Zylindrisches Bauteil mit Doppelarm-Gabel und integrierten Kontaktrollen an den Spitzen.</p>
+          <p data-key="p3-desc">Cylindrical part ending in a fork with two arms, each holding a contact wheel.</p>
         </div>
       </div>
 
@@ -779,7 +780,7 @@
         <img src="Capture 4.PNG" alt="CAD Projekt 4">
         <div class="portfolio-info">
           <h3 data-key="p4-title">Rohrverbindung mit Flanschen</h3>
-          <p data-key="p4-desc">U-förmiges Rohrfitting mit runder Flanschbasis und verschraubtem quadratischen Anschluss.</p>
+          <p data-key="p4-desc">U-shaped curved pipe fitting with a round flange and a square flange connection.</p>
         </div>
       </div>
 
@@ -787,15 +788,15 @@
         <img src="Capture 5.PNG" alt="CAD Projekt 5">
         <div class="portfolio-info">
           <h3 data-key="p5-title">Gewichtsoptimierter Gelenkarm</h3>
-          <p data-key="p5-desc">Mechanischer Verbindungsarm mit drei Bohrungen und integrierten Taschen zur Gewichtsreduktion (DFM).</p>
+          <p data-key="p5-desc">Mechanical link arm with recessed pockets for weight reduction (DFM).</p>
         </div>
       </div>
 
       <div class="portfolio-card">
         <img src="Capture 6.PNG" alt="CAD Projekt 6">
         <div class="portfolio-info">
-          <h3 data-key="p6-title">Technische 2D-Zeichnung </h3>
-          <p data-key="p6-desc">Fertigungsgerechte Detailzeichnung inkl. Vollbemaßung sowie Schnittansichten D-D und E-E.</p>
+          <h3 data-key="p6-title">Technische 2D-Zeichnung (Part7)</h3>
+          <p data-key="p6-desc">Manufacturing-ready detail drawing featuring full dimensions and section views D-D and E-E.</p>
         </div>
       </div>
 
@@ -803,7 +804,7 @@
         <img src="capture 8.png" alt="CAD Projekt 8">
         <div class="portfolio-info">
           <h3 data-key="p8-title">Speichen-Handrad</h3>
-          <p data-key="p8-desc">Massives Handrad mit trapezförmigen Ausschnitten, zentraler Nabe inklusive Passfeder und Mitnehmerstift.</p>
+          <p data-key="p8-desc">Solid wheel with trapezoidal cutouts, keyway hub, and a small pin.</p>
         </div>
       </div>
     </div>
@@ -815,7 +816,7 @@
       <div class="section-title">
         <span class="badge-pill" style="background: rgba(255,255,255,0.1); color: #90CDF4;" data-key="sw-badge">TECHNOLOGISCHES FUNDAMENT</span>
         <h2 data-key="sw-h2">Professioneller Software-Stack</h2>
-        <p data-key="sw-p">Wir setzen branchenführende CAD- und Vektorsoftware ein, um volle Kompatibilität mit Ihren Fertigungsmaschinen zu garantieren.</p>
+        <p data-key="sw-p">We deploy industry-leading CAD and vector software to guarantee full compatibility with your manufacturing machines.</p>
       </div>
 
       <div class="software-grid">
@@ -823,7 +824,7 @@
           <div class="sw-badge sw-solidworks">DS</div>
           <div class="sw-info">
             <h4>SolidWorks</h4>
-            <p data-key="sw-1">3D CAD & Baugruppen</p>
+            <p data-key="sw-1">3D CAD & Assemblies</p>
           </div>
         </div>
 
@@ -831,7 +832,7 @@
           <div class="sw-badge sw-fusion">F</div>
           <div class="sw-info">
             <h4>Autodesk Fusion 360</h4>
-            <p data-key="sw-2">Parametrisches Design</p>
+            <p data-key="sw-2">Parametric Design</p>
           </div>
         </div>
 
@@ -839,7 +840,7 @@
           <div class="sw-badge sw-rhino">3DM</div>
           <div class="sw-info">
             <h4>Rhinoceros 3D</h4>
-            <p data-key="sw-3">Freiform & Vektoren</p>
+            <p data-key="sw-3">Freeform & Vectors</p>
           </div>
         </div>
 
@@ -847,7 +848,7 @@
           <div class="sw-badge sw-autocad">CAD</div>
           <div class="sw-info">
             <h4>AutoCAD</h4>
-            <p data-key="sw-4">2D Technische Zeichnungen</p>
+            <p data-key="sw-4">2D Technical Drawings</p>
           </div>
         </div>
 
@@ -855,7 +856,7 @@
           <div class="sw-badge sw-inkscape">INK</div>
           <div class="sw-info">
             <h4>Inkscape</h4>
-            <p data-key="sw-5">Laserschnitt-Pfadoptimierung</p>
+            <p data-key="sw-5">Laser Vector Optimization</p>
           </div>
         </div>
 
@@ -863,7 +864,7 @@
           <div class="sw-badge sw-slicers">3DP</div>
           <div class="sw-info">
             <h4>Bambu Studio / Cura</h4>
-            <p data-key="sw-6">Additive Fertigung & Slicing</p>
+            <p data-key="sw-6">Additive Manufacturing</p>
           </div>
         </div>
       </div>
@@ -874,14 +875,14 @@
   <section id="contact">
     <div class="section-title">
       <h2 data-key="contact-h2">Kontaktieren Sie Uns</h2>
-      <p data-key="contact-p">Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot</p>
+      <p data-key="contact-p">Send us your project requirements or request a non-binding quote</p>
     </div>
 
     <div class="contact-layout">
       <!-- Direct Contact Details Sidebar -->
       <div class="contact-info">
         <h3 data-key="direct-h3">Direkter Kontakt</h3>
-        <p data-key="direct-p">Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.</p>
+        <p data-key="direct-p">We look forward to learning about your project. Call us or write to us directly via email.</p>
 
         <div class="info-item">
           <div class="info-icon">✉</div>
@@ -907,7 +908,8 @@
 
       <!-- B2B Request Form with AJAX Success Handler -->
       <div>
-        <form id="b2bContactForm" class="contact-form" action="https://formspree.io/f/mnppyvwv" method="POST">
+        <!-- Endpoint replacement with placeholder ID -->
+        <form id="b2bContactForm" class="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="name" data-key="lbl-name">Name / Ansprechpartner *</label>
@@ -946,7 +948,7 @@
 
           <div class="form-group">
             <label for="message" data-key="lbl-msg">Projektbeschreibung & Details *</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..." data-ph-msg="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen..."></textarea>
+            <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate or Timeframe..." data-ph-msg="Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate or Timeframe..."></textarea>
           </div>
 
           <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 1rem;" data-key="btn-submit">Anfrage Absenden</button>
@@ -965,13 +967,14 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo-box">
-        <img src="logo.png" alt="OAD Engineering Logo">
+        <!-- Footer Logo, referencing Icon.png -->
+        <img src="Icon.png" alt="OAD Engineering Logo">
       </div>
       <p style="max-width: 600px; margin: 0 auto; font-size: 0.9rem;" data-key="footer-desc">
-        OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.
+        OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und manufacturing-ready engineering.
       </p>
       <div class="footer-copy" data-key="footer-copy">
-        © 2026 OAD Engineering. Alle Rechte vorbehalten.
+        &copy; 2026 OAD Engineering. Alle Rechte vorbehalten.
       </div>
     </div>
   </footer>
@@ -987,61 +990,61 @@
         "nav-software": "Software",
         "nav-cta": "Projekt Anfragen",
         "hero-title": "Präzision in jedem Detail",
-        "hero-desc": "OAD Engineering kombiniert strategisches Projektmanagement mit hochpräziser CAD-Modellierung, technischer Zeichnungserstellung und fertigungsgerechtem Engineering.",
+        "hero-desc": "OAD Engineering kombiniert strategisches Projektmanagement with high-precision 3D CAD modeling, technical drafting, and manufacturing-ready engineering.",
         "hero-btn": "Projekt Anfragen",
         "about-badge": "Über uns",
-        "about-h2": "Ihr agiler Partner für digitale Fertigung",
-        "about-p1": "OAD Engineering verbindet fundiertes technisches Know-how mit schnellen, direkten Abstimmungswegen. Wir unterstützen mittelständische Fertigungsbetriebe, CNC-Werkstätten, Blechverarbeiter und Hardware-Startups bei der effizienten Umsetzung komplexer Konstruktionen.",
-        "about-p2": "Durch den Einsatz moderner CAD-Systeme und optimierter Datenworkflows garantieren wir maximale Kompatibilität mit Ihren Maschinen und reibungslose Produktionsabläufe.",
-        "formats-title": "Unterstützte Dateiformate & Deliverables",
+        "about-h2": "Ihr agiler Partner for digital fabrication",
+        "about-p1": "OAD Engineering connects deep technical expertise with fast, direct communication channels. We support SME manufacturing companies, CNC workshops, sheet metal fabricators, and hardware startups in efficiently executing complex designs.",
+        "about-p2": "Through the use of modern CAD systems and optimized data workflows, we guarantee maximum compatibility with your machines and smooth production cycles.",
+        "formats-title": "Supports Dateiformate & Deliverables",
         "fmt-3d-title": "3D Interchange (Universal Exchange):",
         "fmt-2d-title": "2D Vector & Cutting (CNC, Laser, Fab):",
-        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (mit Vollbemaßung & BOM)",
+        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (with BOM generation)",
         "fmt-print-title": "3D Printing / Additive:",
         "fmt-native-title": "Native Source Files:",
         "serv-h2": "Unsere Ingenieurdienstleistungen",
-        "serv-p": "Maßgeschneiderte CAD- & Fertigungslösungen für den Maschinenbau, Mittelstand & Fertigungsbetriebe",
+        "serv-p": "Tailored CAD & manufacturing solutions for mechanical engineering, SME manufacturing, & production plants",
         "s1-title": "3D-Modellierung & Produktentwicklung",
-        "s1-desc": "Erstellung komplexer 3D-CAD-Modelle nach Skizzen, Spezifikationen oder Freiformen. Parametrischer Aufbau für einfache spätere Modifikationen.",
-        "tag-parametric": "Parametrik",
+        "s1-desc": "Creation of complex 3D CAD models from sketches, specifications, or freeforms. Parametric architecture for simple future modifications.",
+        "tag-parametric": "Parametric",
         "s2-title": "2D-Zeichnungserstellung & GD&T",
-        "s2-desc": "Fertigungsgerechte Detail- und Baugruppenzeichnungen mit Form- und Lagetoleranzen (GD&T/ISO) für eine reibungslose Produktion.",
-        "tag-dim": "Bemaßung",
+        "s2-desc": "Manufacturing-ready detail and assembly drawings with GD&T (Geometric Dimensioning & Tolerancing) for seamless production.",
+        "tag-dim": "Dimensioning",
         "s3-title": "Laserschneiden & Vektorpfad-Optimierung",
-        "s3-desc": "Bereinigung und Optimierung von 2D-Vektordateien für CNC-, Laser- und Wasserstrahlschneiden. Schnittspalt-Kompensation (Kerf Check).",
+        "s3-desc": "Cleanup and optimization of 2D vector files (node cleanup, node reduction) for CNC, laser, and waterjet cutting.",
         "s4-title": "Baugruppen & Kollisionsprüfung",
-        "s4-desc": "Strukturierte CAD-Baugruppenkonstruktion inklusive Bewegungsanalyse, Freiraumprüfung und visueller Explosionsdarstellungen.",
+        "s4-desc": "Structured CAD assembly design, full Bill of Materials (BOM) generation, interference detection, and motion analysis.",
         "s5-title": "3D-Druck-Optimierung (DFAM)",
-        "s5-desc": "Fertigungsgerechte Aufbereitung von 3D-Modellen für additive Verfahren. Wandstärkenprüfung, Mesh-Reparatur und Slice-Vorbereitung.",
+        "s5-desc": "Preparation of 3D models for additive manufacturing (DFAM). Mesh repair, wall thickness checks, and slicing support.",
         "s6-title": "Reverse Engineering & Stücklisten (BOM)",
-        "s6-desc": "Rekonstruktion von CAD-Daten anhand physischer Bauteile sowie automatisierte Erstellung strukturierter Baugruppen-Stücklisten.",
+        "s6-desc": "Reverse Engineering of physical components into accurate CAD data, complete with structured Bill of Materials generation.",
         "port-h2": "Projekt-Portfolio & Arbeitsproben",
-        "port-p": "Ein Einblick in unsere aktuellen Konstruktions- und Fertigungsprojekte",
+        "port-p": "An insight into our current design and manufacturing projects",
         "p1-title": "Rohr-Schraubstock",
-        "p1-desc": "Auf Grundplatte montierter Schraubstock mit T-Griff zum Spannen der gezahnten Backen.",
+        "p1-desc": "Pipe vise mounted on a base plate with a T-handle to tighten the jaws.",
         "p3-title": "Greifmechanismus",
-        "p3-desc": "Zylindrisches Bauteil mit Doppelarm-Gabel und integrierten Kontaktrollen an den Spitzen.",
+        "p3-desc": "Cylindrical part ending in a fork with two arms, each holding a contact wheel.",
         "p4-title": "Rohrverbindung mit Flanschen",
-        "p4-desc": "U-förmiges Rohrfitting mit runder Flanschbasis und verschraubtem quadratischen Anschluss.",
+        "p4-desc": "U-shaped curved pipe fitting with a round flange and a square flange connection.",
         "p5-title": "Gewichtsoptimierter Gelenkarm",
-        "p5-desc": "Mechanischer Verbindungsarm mit drei Bohrungen und integrierten Taschen zur Gewichtsreduktion (DFM).",
+        "p5-desc": "Mechanical link arm with recessed pockets for weight reduction (DFM).",
         "p6-title": "Technische 2D-Zeichnung (Part7)",
-        "p6-desc": "Fertigungsgerechte Detailzeichnung inkl. Vollbemaßung sowie Schnittansichten D-D und E-E.",
+        "p6-desc": "Manufacturing-ready detail drawing featuring full dimensions and section views D-D and E-E.",
         "p8-title": "Speichen-Handrad",
-        "p8-desc": "Massives Handrad mit trapezförmigen Ausschnitten, zentraler Nabe inklusive Passfeder und Mitnehmerstift.",
+        "p8-desc": "Solid wheel with trapezoidal cutouts, keyway hub, and a small pin.",
         "sw-badge": "TECHNOLOGISCHES FUNDAMENT",
         "sw-h2": "Professioneller Software-Stack",
-        "sw-p": "Wir setzen branchenführende CAD- und Vektorsoftware ein, um volle Kompatibilität mit Ihren Fertigungsmaschinen zu garantieren.",
-        "sw-1": "3D CAD & Baugruppen",
-        "sw-2": "Parametrisches Design",
-        "sw-3": "Freiform & Vektoren",
-        "sw-4": "2D Technische Zeichnungen",
-        "sw-5": "Laserschnitt-Pfadoptimierung",
-        "sw-6": "Additive Fertigung & Slicing",
+        "sw-p": "We deploy industry-leading CAD and vector software to guarantee full compatibility with your manufacturing machines.",
+        "sw-1": "3D CAD & Assemblies",
+        "sw-2": "Parametric Design",
+        "sw-3": "Freeform & Vectors",
+        "sw-4": "2D Technical Drawings",
+        "sw-5": "Laser Vector Optimization",
+        "sw-6": "Additive Manufacturing",
         "contact-h2": "Kontaktieren Sie Uns",
-        "contact-p": "Senden Sie uns Ihre Projektanforderung oder Anfrage für ein unverbindliches Angebot",
+        "contact-p": "Send us your project requirements or request a non-binding quote",
         "direct-h3": "Direkter Kontakt",
-        "direct-p": "Wir freuen uns darauf, Ihr Projekt kennenzulernen. Rufen Sie uns an oder schreiben Sie uns direkt per E-Mail.",
+        "direct-p": "We look forward to learning about your project. Call us or write to us directly via email.",
         "loc-text": "65760 Eschborn, Deutschland",
         "lbl-name": "Name / Ansprechpartner *",
         "ph-name": "z. B. Max Mustermann",
@@ -1059,11 +1062,11 @@
         "opt-6": "Reverse Engineering & Stücklisten",
         "opt-7": "Sonstiges / Beratung",
         "lbl-msg": "Projektbeschreibung & Details *",
-        "ph-msg": "Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate oder Zeitrahmen...",
+        "ph-msg": "Beschreiben Sie kurz Ihr Projekt, benötigte Dateiformate or Timeframe...",
         "btn-submit": "Anfrage Absenden",
         "msg-success-text": "Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.",
-        "footer-desc": "OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und fertigungsgerechtes Engineering.",
-        "footer-copy": "© 2026 OAD Engineering. Alle Rechte vorbehalten."
+        "footer-desc": "OAD Engineering – Ihr Partner für präzise CAD-Konstruktion, Vektor-Optimierung und manufacturing-ready engineering.",
+        "footer-copy": "&copy; 2026 OAD Engineering. Alle Rechte vorbehalten."
       },
       en: {
         metaTitle: "OAD Engineering | Precision in Every Detail",
@@ -1076,45 +1079,45 @@
         "hero-desc": "OAD Engineering combines strategic project management with high-precision 3D CAD modeling, technical drafting, and manufacturing-ready engineering.",
         "hero-btn": "Request Project",
         "about-badge": "About Us",
-        "about-h2": "Your Agile Partner for Digital Manufacturing",
-        "about-p1": "OAD Engineering bridges deep technical expertise with fast, direct communication channels. We support mid-sized manufacturing companies, CNC workshops, sheet metal fabricators, and hardware startups in efficiently executing complex designs.",
+        "about-h2": "Your Agile Partner for Digital Fabrication",
+        "about-p1": "OAD Engineering connects deep technical expertise with fast, direct communication channels. We support SME manufacturing companies, CNC workshops, sheet metal fabricators, and hardware startups in efficiently executing complex designs.",
         "about-p2": "Through the use of modern CAD systems and optimized data workflows, we guarantee maximum compatibility with your machines and smooth production cycles.",
-        "formats-title": "Supported File Formats & Deliverables",
+        "formats-title": "Supports Dateiformate & Deliverables",
         "fmt-3d-title": "3D Interchange (Universal Exchange):",
         "fmt-2d-title": "2D Vector & Cutting (CNC, Laser, Fab):",
-        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (with full dimensions & BOM)",
+        "fmt-2d-desc": "DXF (.dxf), SVG (.svg), DWG (.dwg), PDF (with BOM generation)",
         "fmt-print-title": "3D Printing / Additive:",
         "fmt-native-title": "Native Source Files:",
         "serv-h2": "Our Engineering Services",
-        "serv-p": "Tailored CAD & manufacturing solutions for mechanical engineering, SMEs & production plants",
+        "serv-p": "Tailored CAD & manufacturing solutions for mechanical engineering, SME manufacturing, & production plants",
         "s1-title": "3D Modeling & Product Design",
         "s1-desc": "Creation of complex 3D CAD models from sketches, specifications, or freeforms. Parametric architecture for simple future modifications.",
         "tag-parametric": "Parametric",
         "s2-title": "2D Drafting & GD&T",
-        "s2-desc": "Manufacturing-ready detail and assembly drawings with form and location tolerances (GD&T/ISO) for seamless production.",
+        "s2-desc": "Manufacturing-ready detail and assembly drawings with GD&T (Geometric Dimensioning & Tolerancing) for seamless production.",
         "tag-dim": "Dimensioning",
         "s3-title": "Laser Cutting & Vector Optimization",
-        "s3-desc": "Cleanup and optimization of 2D vector files for CNC, laser, and waterjet cutting. Kerf compensation and node checks.",
+        "s3-desc": "Cleanup and optimization of 2D vector files (node cleanup, node reduction) for CNC, laser, and waterjet cutting.",
         "s4-title": "Assemblies & Clash Detection",
-        "s4-desc": "Structured CAD assembly design including motion analysis, clearance verification, and visual exploded views.",
+        "s4-desc": "Structured CAD assembly design, full Bill of Materials (BOM) generation, interference detection, and motion analysis.",
         "s5-title": "3D Printing Optimization (DFAM)",
-        "s5-desc": "Manufacturing preparation of 3D models for additive processes. Wall thickness checks, mesh repair, and slice prep.",
+        "s5-desc": "Preparation of 3D models for additive manufacturing (DFAM). Mesh repair, wall thickness checks, and slicing support.",
         "s6-title": "Reverse Engineering & BOM Generation",
-        "s6-desc": "CAD reconstruction from physical components as well as automated creation of structured assembly Bills of Materials.",
+        "s6-desc": "Reverse Engineering of physical components into accurate CAD data, complete with structured Bill of Materials generation.",
         "port-h2": "Project Portfolio & Work Samples",
         "port-p": "An insight into our current design and manufacturing projects",
         "p1-title": "Pipe Vise",
-        "p1-desc": "Pipe vise mounted on a base plate with two bolts, featuring a T-handle to tighten the serrated jaws.",
+        "p1-desc": "Pipe vise mounted on a base plate with a T-handle to tighten the jaws.",
         "p3-title": "Gripper Mechanism",
-        "p3-desc": "Cylindrical part ending in a fork with two arms, each holding a small contact wheel at its tip.",
+        "p3-desc": "Cylindrical part ending in a fork with two arms, each holding a contact wheel.",
         "p4-title": "Flanged Pipe Fitting",
-        "p4-desc": "U-shaped curved pipe fitting with a round flange on one side and a square flange on top.",
+        "p4-desc": "U-shaped curved pipe fitting with a round flange and a square flange connection.",
         "p5-title": "Weight-Optimized Link Arm",
-        "p5-desc": "Mechanical link arm with three circular holes and recessed pockets for weight reduction (DFM).",
+        "p5-desc": "Mechanical link arm with recessed pockets for weight reduction (DFM).",
         "p6-title": "Technical 2D Drawing (Part7)",
-        "p6-desc": "Manufacturing detail drawing including full dimensions and section views D-D and E-E.",
+        "p6-desc": "Manufacturing-ready detail drawing featuring full dimensions and section views D-D and E-E.",
         "p8-title": "Spoked Handwheel",
-        "p8-desc": "Solid wheel with trapezoidal cutouts, central hub featuring a keyway, and a small pin on the face.",
+        "p8-desc": "Solid wheel with trapezoidal cutouts, keyway hub, and a small pin.",
         "sw-badge": "TECHNOLOGICAL FOUNDATION",
         "sw-h2": "Professional Software Stack",
         "sw-p": "We deploy industry-leading CAD and vector software to guarantee full compatibility with your manufacturing machines.",
@@ -1122,8 +1125,8 @@
         "sw-2": "Parametric Design",
         "sw-3": "Freeform & Vectors",
         "sw-4": "2D Technical Drawings",
-        "sw-5": "Laser Path Optimization",
-        "sw-6": "Additive Manufacturing & Slicing",
+        "sw-5": "Laser Vector Optimization",
+        "sw-6": "Additive Manufacturing",
         "contact-h2": "Contact Us",
         "contact-p": "Send us your project requirements or request a non-binding quote",
         "direct-h3": "Direct Contact",
@@ -1149,7 +1152,7 @@
         "btn-submit": "Submit Request",
         "msg-success-text": "Thank you! Your request has been submitted successfully. We will get back to you shortly.",
         "footer-desc": "OAD Engineering – Your partner for precise CAD design, vector optimization, and manufacturing-ready engineering.",
-        "footer-copy": "© 2026 OAD Engineering. All rights reserved."
+        "footer-copy": "&copy; 2026 OAD Engineering. All rights reserved."
       }
     };
 
